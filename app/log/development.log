@@ -7010,3 +7010,208 @@ Filter chain halted as #<Proc:0x00007f9cd8bb8df8@/Users/t-lqiu/.rbenv/versions/2
 Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
 
 
+Started GET "/" for ::1 at 2019-06-05 16:24:44 +0900
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#index as HTML
+  Rendering welcome/index.html.erb within layouts/application
+  Rendered welcome/index.html.erb within layouts/application (1.1ms)
+Completed 200 OK in 128ms (Views: 121.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-06-05 16:24:48 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 47ms (Views: 40.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles/new" for ::1 at 2019-06-05 16:24:49 +0900
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x00007f8e3b427ba8@/Users/t-lqiu/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for ::1 at 2019-06-05 16:24:50 +0900
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x00007f8e3b427ba8@/Users/t-lqiu/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 0ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2019-06-05 16:24:51 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles/5" for ::1 at 2019-06-05 16:24:53 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of templates [0 times] (0.0ms)
+  Rendered comments/_form.html.erb (18.6ms)
+  Rendered articles/show.html.erb within layouts/application (33.8ms)
+Completed 200 OK in 59ms (Views: 54.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/articles/5/comments" for ::1 at 2019-06-05 16:24:55 +0900
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"7atCy8+72tGrokRIAQTA+JVCuHPmZmy+NUvBs7E5/3mTfDHOMsZ+DWiXUe7sSUjnDu6NHvufg8ijxJWiK8hX7w==", "comment"=>{"commenter"=>"", "body"=>""}, "commit"=>"Create Comment", "article_id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", ""], ["body", ""], ["article_id", 5], ["created_at", "2019-06-05 07:24:55.479094"], ["updated_at", "2019-06-05 07:24:55.479094"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 200 OK in 4ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/articles/5" for ::1 at 2019-06-05 16:24:55 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [1 times] (0.5ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 16ms (Views: 14.7ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles/5/comments" for ::1 at 2019-06-05 16:25:02 +0900
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+fgnT0nY9TF2E9L2BIUFG9A6+19qgoq69iWg1m+Lh36HL1RKtKVR7bUmx1DpyI0ES5bOMnd7ZcxgqvTH9Xov6A==", "comment"=>{"commenter"=>"11", "body"=>"111"}, "commit"=>"Create Comment", "article_id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", "11"], ["body", "111"], ["article_id", 5], ["created_at", "2019-06-05 07:25:02.143751"], ["updated_at", "2019-06-05 07:25:02.143751"]]
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 200 OK in 5ms (ActiveRecord: 2.9ms)
+
+
+Started GET "/articles/5" for ::1 at 2019-06-05 16:25:02 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [2 times] (0.5ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 27ms (Views: 25.2ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/articles/5/comments/8" for ::1 at 2019-06-05 16:25:12 +0900
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9vhLp2kRAwPWXqziTMH7+gUyRvQJLjoTM7TvClLuvEJ30YmYpVEdAl+P53W+5i+45VGsYwtByZ2w/QTQXVQ19Q==", "article_id"=>"5", "id"=>"8"}
+Filter chain halted as #<Proc:0x00007f8e3a66c5e0@/Users/t-lqiu/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/articles/5/comments/8" for ::1 at 2019-06-05 16:25:14 +0900
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9vhLp2kRAwPWXqziTMH7+gUyRvQJLjoTM7TvClLuvEJ30YmYpVEdAl+P53W+5i+45VGsYwtByZ2w/QTQXVQ19Q==", "article_id"=>"5", "id"=>"8"}
+Filter chain halted as #<Proc:0x00007f8e3a66c5e0@/Users/t-lqiu/.rbenv/versions/2.6.3/lib/ruby/gems/2.6.0/gems/actionpack-5.1.7/lib/action_controller/metal/http_authentication.rb:70> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/favicon.ico" for ::1 at 2019-06-05 16:25:14 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.7) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.7) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.7) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.7) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.7) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.7) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.7) lib/rails/engine.rb:522:in `call'
+puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/articles/5/comments" for ::1 at 2019-06-05 16:25:19 +0900
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+fgnT0nY9TF2E9L2BIUFG9A6+19qgoq69iWg1m+Lh36HL1RKtKVR7bUmx1DpyI0ES5bOMnd7ZcxgqvTH9Xov6A==", "comment"=>{"commenter"=>"11", "body"=>"111"}, "commit"=>"Create Comment", "article_id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (12.8ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", "11"], ["body", "111"], ["article_id", 5], ["created_at", "2019-06-05 07:25:19.483300"], ["updated_at", "2019-06-05 07:25:19.483300"]]
+  [1m[35m (2.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 200 OK in 19ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/articles/5" for ::1 at 2019-06-05 16:25:19 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [3 times] (0.6ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 17ms (Views: 15.3ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/articles/5/comments" for ::1 at 2019-06-05 16:25:23 +0900
+Processing by CommentsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"b2oyEQEPpRoqnrtRvUcVnG7jazE+A4ulvcJP8zuhsiwRvUEU/HIBxumrrvdQCp2D9U9eXCP6ZNMrTRvioVAaug==", "comment"=>{"commenter"=>"", "body"=>""}, "commit"=>"Create Comment", "article_id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("commenter", "body", "article_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["commenter", ""], ["body", ""], ["article_id", 5], ["created_at", "2019-06-05 07:25:23.162348"], ["updated_at", "2019-06-05 07:25:23.162348"]]
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/5
+Completed 200 OK in 5ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/articles/5" for ::1 at 2019-06-05 16:25:23 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [4 times] (0.7ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (4.1ms)
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for ::1 at 2019-06-05 16:25:26 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 14ms (Views: 12.7ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/articles/5" for ::1 at 2019-06-05 16:25:28 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 5]]
+  Rendered collection of comments/_comment.html.erb [4 times] (0.7ms)
+  Rendered comments/_form.html.erb (1.4ms)
+  Rendered articles/show.html.erb within layouts/application (4.3ms)
+Completed 200 OK in 17ms (Views: 15.0ms | ActiveRecord: 0.2ms)
+
+
